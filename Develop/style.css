@@ -52,6 +52,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  word-break: break-all; /* Add word break to break the password if it extends past the size of the line/space */ 
 }
 
 .card-footer {

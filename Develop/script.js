@@ -10,19 +10,12 @@ function generatePassword(){
     // Variable to store user input
     var length = Number(window.prompt("How many characters would you like your password to be?"));
 
-    // Using if statements to validate user response
-    if (isNaN(length)){
-        window.alert("Please enter  a valid number");
+    // Using while loop to validate user response
+    while (isNaN(length) || length < 8 || length > 128) {
+        window.alert("Please enter a valid number between 8 to 128");
         var length = Number(window.prompt("How many characters would you like your password to be?"));
     }
-    else if (length <= 7 || length > 128) {
-        window.alert("Try again - the Password length must be between 8 to 128 numeric value");
-        var length = Number(window.prompt("How many characters would you like your password to be?"));
-    }
-    else {
-        window.alert("Your password will contain " + " "+ length + " characters");
-    }
-
+    
     // Variable to store and confirm user input for the different character types
     var confirmLowerCase = confirm ("Would you like to include lowercase letters?");
     var confirmUpperCase = confirm ("Would you like to include uppercase letters?");
