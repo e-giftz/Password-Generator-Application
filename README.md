@@ -21,7 +21,7 @@ When the user has successfully selected and defined  their criterias, the passwo
 
 ## Screenshots of Web App
 
-![Password Generator App ](images/Password_generator_app.png)
+![Password Generator App ](images/PasswordGeneratorApp.png)
 
 ![Password Generator App Output ](images/PasswordAppOutput.png)
 
