@@ -1,26 +1,28 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Create arrays to hold the list of various characters
-/*var lowerAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var UpperAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var myNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialCharacter = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "~", "?", "/", " ", "'", ",", ".",";", ":", "<", ">", "]", "[", "{", "}", "|", "`"];
-*/
+// Stores all character possibiilities in a variable
 var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}-=|;:'?><,./~`[]";
 
 // Generate password using the criteria selected by user
 function generatePassword(){
 
-    // Variables to store user input
+    // Variable to store user input
     var length = Number(window.prompt("How many characters would you like your password to be?"));
-    while (isNaN(length) || length < 8 || length > 128){
+
+    // Using if statements to validate user response
+    if (isNaN(length)){
+        window.alert("Please enter  a valid number");
+        var length = Number(window.prompt("How many characters would you like your password to be?"));
+    }
+    else if (length <= 7 || length > 128) {
         window.alert("Try again - the Password length must be between 8 to 128 numeric value");
         var length = Number(window.prompt("How many characters would you like your password to be?"));
     }
+    else {
+        window.alert("Your password will contain " + " "+ length + " characters");
+    }
 
-    window.alert("Your password will contain " + " "+ length + " characters");
-  
     // Variable to store and confirm user input for the different character types
     var confirmLowerCase = confirm ("Would you like to include lowercase letters?");
     var confirmUpperCase = confirm ("Would you like to include uppercase letters?");
@@ -38,16 +40,15 @@ function generatePassword(){
     }
 
     // Generating the password
-    ranPassword = "";
+    randomChar = "";
 
     // Using for loop to select character for each iteration
     for (var i=0;  i<length; ++i) {
-        //ranPassword = Math.floor(Math.random() * characters.length);
-        ranPassword += characters.charAt(Math.floor(Math.random() * characters.length));
-        console.log(ranPassword);
+        // Use Math function to calculate and generate random characters
+        randomChar += characters.charAt(Math.floor(Math.random() * characters.length));
+        console.log(randomChar);
     }
-    return ranPassword;
-
+    return randomChar;
 }
 // Write password to the #password input
     function writePassword() {
